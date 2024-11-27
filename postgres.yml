@@ -1,0 +1,20 @@
+services:
+  postgres-db:
+    image: postgres:alpine
+    container_name: flatmate-local
+    restart: unless-stopped
+    expose:
+      - '5432'
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_DB: 'flatmate'
+      POSTGRES_USER: 'fluser'
+      POSTGRES_PASSWORD: 'flpass'
+      # POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+      # POSTGRES_INITDB_ARGS: --auth-host=scram-sha-256
+    volumes:
+      - pgvol:/var/lib/postgresql/data
+
+volumes:
+  pgvol:
