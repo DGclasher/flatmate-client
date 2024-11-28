@@ -8,27 +8,30 @@ datasource db {
 }
 
 model UserProfile {
-  id                      Int      @id @default(autoincrement())
-  googleId                String   @unique
-  gender                  String
-  occupation              String
-  educationLevel          String
-  preferredCity           String
-  preferredAccommodation  String
-  dailySchedule           String
-  smokingHabits           String
-  drinkingHabits          String
-  dietaryPreferences      String
-  petPreferences          String
-  introvertExtrovert      String
-  socialHabits            String
-  hobbiesAndInterests     String
-  languagePreferences     String
-  preferredSecurityMeasures String
-  isLookingFor            String   
-  age                     Int
-  budgetPriceRange        Float
-  numberOfRoommates       Int
+  googleId                String   @id @unique
+  emailId                 String   @unique
+  firstName               String
+  lastName                String
+  gender                  String?
+  occupation              String?
+  educationLevel          String?
+  preferredCity           String?
+  preferredAccommodation  String?
+  dailySchedule           String?
+  smokingHabits           String?
+  drinkingHabits          String?
+  dietaryPreferences      String?
+  petPreferences          String?
+  introvertExtrovert      String?
+  socialHabits            String?
+  hobbiesAndInterests     String?
+  languagePreferences     String?
+  preferredSecurityMeasures String?
+  isLookingFor            String?   
+  age                     Int?
+  budgetPriceRange        Float?
+  numberOfRoommates       Int?
+  isCompleted             Boolean  @default(false)
   createdAt               DateTime @default(now())
   updatedAt               DateTime @updatedAt
 }

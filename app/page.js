@@ -1,16 +1,21 @@
 import { Button } from "@/components/ui/button";
-import { ChevronRight, UserCheck, ShieldCheck, CheckCircle2,  } from "lucide-react";
+import { ChevronRight, UserCheck, ShieldCheck, CheckCircle2 } from "lucide-react";
 import { FaLinkedin } from "react-icons/fa";
 import { FiTwitter } from "react-icons/fi";
 import { AiFillInstagram } from "react-icons/ai";
-
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   return (
-    <div className="h-full w-full flex flex-col justify-center items-center">
+    <div className="h-full w-full flex flex-col">
+      {/* Header */}
+      <header className="w-full flex justify-end items-center p-4 bg-zinc-950 text-white">
+        <UserButton afterSignOutUrl="/" />
+      </header>
+
       {/* Hero Section */}
       <section
-        className="relative flex flex-col w-full h-full font-poppins items-center justify-center pt-40 pb-40 bg-gradient-to-b from-zinc-950  to-zinc-800 text-white"
+        className="relative flex flex-col w-full h-full font-poppins items-center justify-center pt-40 pb-40 bg-gradient-to-b from-zinc-950 to-zinc-800 text-white"
         style={{
           clipPath: "polygon(0 0, 100% 0, 100% 85%, 0% 100%)",
         }}
@@ -73,11 +78,11 @@ export default function Home() {
       </section>
 
       {/* Footer Section */}
-      <footer className="w-full border-t rounded-t-3xl bg-gradient-to-b from-zinc-100  to-zinc-200 font-poppins py-12 mt-12">
+      <footer className="w-full border-t rounded-t-3xl bg-gradient-to-b from-zinc-100 to-zinc-200 font-poppins py-12 mt-12">
         <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 px-8">
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold  pb-4">About FlatMate</h3>
+            <h3 className="text-xl font-bold pb-4">About FlatMate</h3>
             <p>
               FlatMate is your go-to platform for finding compatible flatmates
               based on your preferences. Simplify your search and enjoy a secure
@@ -87,7 +92,7 @@ export default function Home() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold  pb-4">Quick Links</h3>
+            <h3 className="text-xl font-bold pb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><a href="#features" className="hover:text-white">Features</a></li>
               <li><a href="#pricing" className="hover:text-white">Pricing</a></li>
@@ -98,20 +103,11 @@ export default function Home() {
 
           {/* Social Media */}
           <div>
-            <h3 className="text-xl font-bold  pb-4">Follow Us</h3>
+            <h3 className="text-xl font-bold pb-4">Follow Us</h3>
             <div className="flex gap-4">
-             <div>
               <FaLinkedin className="w-6 h-6" />
-
-             </div>
-              <div>
-                <FiTwitter className="w-6 h-6" />
-              </div>
-              <div>
-                <AiFillInstagram className="w-6 h-6" />
-                </div>
-
-              
+              <FiTwitter className="w-6 h-6" />
+              <AiFillInstagram className="w-6 h-6" />
             </div>
           </div>
         </div>
